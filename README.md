@@ -2,10 +2,16 @@
 Application web de gestion des projets permettant aux utilisateurs de créer, lire, mettre à jour et supprimer des projets.
 
 <a href="https://nodejs.org" target="_blank">
-  <img alt="NodeJs" src="https://img.shields.io/badge/Node.JS-94C745?style=for-the-badge&logo=node&logoColor=white">
+  <img alt="NodeJs" src="https://img.shields.io/badge/Node.JS-94C745?style=for-the-badge&logo=node.js&logoColor=white">
 </a>
 <a href="https://expressjs.com/">
   <img alt="expressjs" src="https://img.shields.io/badge/Express.JS-383838?style=for-the-badge&logo=express&logoColor=white">
+</a>
+<a href="https://vuejs.org">
+  <img alt="Sequelize" src="https://img.shields.io/badge/Sequelize-20B2AA?style=for-the-badge&logo=Sequelize&logoColor=black">
+</a>
+<a href="https://vuejs.org">
+  <img alt="JWT" src="https://img.shields.io/badge/JWT-red?style=for-the-badge&logo=jwt&logoColor=red">
 </a>
 <a href="https://vuejs.org">
   <img alt="Vue.Js" src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D">
