@@ -17,7 +17,7 @@ const sequelize = new Sequelize(
 
 // Authentification
 sequelize.authenticate().then(() => {
-    console.log("CONNECTING DATABSE...");
+    console.log("[DB]", "CONNECTING DATABASE...");
     // Import des tables
     var UserRole = require("../models/UserRole.model");
     var User = require("../models/User.model");
@@ -29,10 +29,36 @@ sequelize.authenticate().then(() => {
     //  Synchronization de la base de données
     //  force: true si drop et recreéation des tables nécessaire
     (async () => {
-        await sequelize.sync({ force: false });
+        await sequelize.sync({ force: true });
     })().finally( () => {
-        console.log("DATABASE CONNECTED");
+        console.log("[DB]", "DATABASE CONNECTED");
+
+        // Donnée de base de test
+        (async () => {
+            try {
+                await UserRole.create({ "name": "admin" });
+                await UserRole.create({ "name": "user" });
+                await User.create({ 
+                    "name": "admin",
+                    "email": "admin@gmail.com",
+                    "password": "admin",
+                    "UserRoleId": 1
+                });
+                
+                await TaskStatus.create({ "name": "A faire" });
+                await TaskStatus.create({ "name": "En cours" });
+                await TaskStatus.create({ "name": "Terminé" });
+            } catch (error) {
+                console.log("[DB]", "Data mockup already created");
+            }
+        })().finally( () => {
+            console.log("[DB]", "Data mockup created");
+        });
+
     });
-})
+
+}).catch( (error) => {
+    console.log("[ERROR]", error);
+});
 
 module.exports = sequelize;

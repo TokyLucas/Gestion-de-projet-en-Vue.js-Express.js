@@ -1,9 +1,9 @@
 const jwt = require('jsonwebtoken');
 
-
 // JWT middleware
-const jwtAuth = (compteType = "User") => {
-    return async (req, res, next) =>{
+// allowedUser: tableau de nom de compte authoriser en lowercase
+const jwtAuth = (allowedUser = ["admin"]) => {
+    return async (req, res, next) => {
         try {
             // Lecture d'headers
             var bearerHeader = req.headers['authorization'];
@@ -16,12 +16,15 @@ const jwtAuth = (compteType = "User") => {
                 var user = jwt.verify(bearerToken, process.env.JWT_KEY);
                 req.user = user;
 
-                next();
+                if( !allowedUser.includes(user.UserRole.name.toLowerCase())) throw new Error(`Accès pour ${allowedUser} seulement`);
             } else {
                 throw new Error("Authentification echoué.");
             }
+            next();
         } catch (error) {
-            return res.status(403).json({ "message": error.message });
+            res.status(500).json({
+                message: error.message
+            });
         }
     }
 }

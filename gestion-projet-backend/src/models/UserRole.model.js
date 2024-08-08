@@ -27,5 +27,4 @@ const UserRole = sequelize.define(
     },
 );
 
-
 module.exports = UserRole;

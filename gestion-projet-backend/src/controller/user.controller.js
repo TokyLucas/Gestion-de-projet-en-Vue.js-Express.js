@@ -14,26 +14,31 @@ const login = async (req, res, next) => {
                 email: email,
                 password: hash(password)
             },
-            include: UserRole
+            include: UserRole,
+            attributes: { exclude: ['password'] }
         });
 
-        if (compte.length <= 0) throw new Error("Email ou mot de passe invalide");
+        if (!compte) throw new Error("Email ou mot de passe invalide");
         var token = jwt.sign(compte.dataValues, process.env.JWT_KEY, { expiresIn: "1h"});
 
         res.data = {
             token: token,
             data: compte.dataValues
         }
-        next();
     } catch (error) {
-        return res.status(403).json({ message: error.message});
+        res.statusCode = 500;
+        res.message = error.message;
+    } finally {
+        next();
     }
-    next();
 };
 
 const find = async (req, res, next) => {
+    var paginateOptions = req.paginateOptions;
     res.data = await User.findAll({
-        include: UserRole
+        include: UserRole,
+        attributes: { exclude: ['password'] },
+        offset: paginateOptions.skip, limit: paginateOptions.limit
     });
     next();
 };

@@ -7,6 +7,10 @@ router.get('/projects',
     controller.find
 );
 
+router.get('/project/:id',
+    controller.findById
+);
+
 router.post('/project',
     controller.createOne
 );

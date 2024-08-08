@@ -3,7 +3,7 @@ var router = express.Router();
 
 var controller = require('../../../src/controller/userRole.controller')
 
-router.get('/user-role',
+router.get('/user-roles',
     controller.find
 );
 

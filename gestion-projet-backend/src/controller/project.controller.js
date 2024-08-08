@@ -7,6 +7,11 @@ const find = async (req, res, next) => {
     next();
 };
 
+const findById = async (req, res, next) => {
+    res.data = await Project.findByPk(req.params.id, { include: { all: true, nested: true }});
+    next();
+};
+
 const createOne = async (req, res, next) => {
     try {
         var project = await Project.create(req.body);
@@ -60,6 +65,7 @@ const deleteOne = async (req, res, next) => {
 };
 
 module.exports.find = find;
+module.exports.findById = findById;
 module.exports.createOne = createOne;
 module.exports.updateOne = updateOne;
 module.exports.deleteOne = deleteOne;

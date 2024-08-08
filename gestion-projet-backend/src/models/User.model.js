@@ -100,5 +100,4 @@ User.belongsTo(UserRole, {
     foreignKey: { allowNull: false }
 });
 
-
 module.exports = User;
