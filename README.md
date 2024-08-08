@@ -29,7 +29,7 @@ Installer les dépendances
 npm install
 ```
 ## Modifier le fichier **.env** pour vos config. Ici le port sera '3001' et mettre les information de connexion de votre base de donnée
-Si le fichier .env est manquant. Créer en un dans la racine du dossier backend
+Si le fichier .env est manquant. Créer le fichier dans la racine du dossier backend
 ```bash
 PORT='3001'
 
@@ -46,7 +46,7 @@ Lancer en mode dev et attender que l'application démarre et les données de tes
 ```bash
 nodemon start
 ```
-L'application demarrera sur
+L'application démarrera sur
 ```bash
  127.0.0.1:{PORT}
 ```
@@ -63,7 +63,7 @@ Installer les dépendances
 npm install
 ```
 ## Modifier le fichier **.env** pour vos config. Ici l'URL pour les appel sera 'http://127.0.0.1:3001'. Faire correspondre le port au port du Backend.
-Si le fichier .env est manquant. Créer en un dans la racine du dossier backend
+Si le fichier .env est manquant. Créer le fichier dans la racine du dossier frontend
 ```bash
 VITE_API_URL='http://127.0.0.1:3001'
 ```
@@ -78,7 +78,7 @@ http://localhost:5173
 
 > [!IMPORTANT]  
 > Donnée de test:
-> User: email: admin@gmail.com / password: admnin
+> User: email: admin@gmail.com / password: admin
 
 # Démo
 Vous trouverez une démo video dans le dossier. Veuillez excusez les lags et options de formulaires ne s'affichant pas dans la vidéo à cause de la machine enregistrante qui est lente. 
