@@ -7,6 +7,10 @@ router.get('/tasks',
     controller.find
 );
 
+router.get('/tasks/user/:pid_person',
+    controller.findByUserId
+);
+
 router.post('/task',
     controller.createOne
 );

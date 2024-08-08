@@ -29,7 +29,7 @@ sequelize.authenticate().then(() => {
     //  Synchronization de la base de données
     //  force: true si drop et recreéation des tables nécessaire
     (async () => {
-        await sequelize.sync({ force: true });
+        await sequelize.sync({ force: false });
     })().finally( () => {
         console.log("[DB]", "DATABASE CONNECTED");
 

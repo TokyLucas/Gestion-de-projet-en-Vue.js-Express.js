@@ -27,7 +27,7 @@
                 setCookie("token", result.data.data.token);
                 localStorage.setItem("user", JSON.stringify(result.data.data.data));
                 
-                window.location.href = '/';
+                window.location.href = '/tasks';
                 // this.$router.push("/")
             })
             .catch(error => state.loginError = error.response.data.message)

@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import AccueilView from './../views/AccueilView.vue'
+import TasksView from './../views/TasksView.vue'
 import ProjectView from './../views/ProjectView.vue'
 import TaskView from './../views/TaskView.vue'
 import UserView from './../views/UserView.vue'
@@ -22,6 +23,11 @@ const router = createRouter({
             name: 'accueil',
             component: AccueilView,
             children: [
+                {
+                    path: '/tasks',
+                    name: 'tasks',
+                    component: TasksView,
+                },
                 {
                     path: 'admin/project',
                     name: 'adminProject',

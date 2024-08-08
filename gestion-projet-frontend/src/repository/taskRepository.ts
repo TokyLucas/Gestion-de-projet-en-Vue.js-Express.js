@@ -18,6 +18,10 @@ export default {
         return Repository.get(`${URL}/tasks`);
     },
 
+    findByUserId(userId: any) {
+        return Repository.get(`${URL}/tasks/user/${userId}`);
+    },
+
     update(body: any, id: number) {
         return Repository.put(`${URL}/task/${id}`, body, {
             headers: {

@@ -8,6 +8,16 @@ const find = async (req, res, next) => {
     next();
 };
 
+const findByUserId = async (req, res, next) => {
+    res.data = await Task.findAll({
+        where: {
+            pid_person: req.params.pid_person,
+        },
+        include: [TaskStatus]
+    });
+    next();
+};
+
 const createOne = async (req, res, next) => {
     try {
         var task = await Task.create(req.body);
@@ -61,6 +71,7 @@ const deleteOne = async (req, res, next) => {
 };
 
 module.exports.find = find;
+module.exports.findByUserId = findByUserId;
 module.exports.createOne = createOne;
 module.exports.updateOne = updateOne;
 module.exports.deleteOne = deleteOne;
